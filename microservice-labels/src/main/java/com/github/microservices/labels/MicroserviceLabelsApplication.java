@@ -1,4 +1,4 @@
-package com.github.microservices.music.bands;
+package com.github.microservices.labels;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
