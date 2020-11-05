@@ -56,8 +56,8 @@
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-			<groupId>com.github.microservices.record</groupId>
-			<artifactId>commons-record</artifactId>
+			<groupId>com.github.microservices.band</groupId>
+			<artifactId>commons-band</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
