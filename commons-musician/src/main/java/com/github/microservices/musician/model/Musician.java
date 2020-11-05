@@ -1,4 +1,4 @@
-package com.github.microservices.musicicians.model;
+package com.github.microservices.musician.model;
 
 import lombok.Builder;
 import lombok.Data;

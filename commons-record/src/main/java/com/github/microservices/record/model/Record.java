@@ -1,4 +1,4 @@
-package com.github.microservices.bands.model;
+package com.github.microservices.record.model;
 
 import java.time.LocalDate;
 
