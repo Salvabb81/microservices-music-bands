@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.github.microservices.band.model.Band;
 import com.github.microservices.band.model.Record;
 import com.github.microservices.bands.services.BandService;
 import com.github.microservices.musician.model.Musician;
@@ -33,37 +34,37 @@ public class BandController {
 	}
 
 	@GetMapping
-	public ResponseEntity<?> listBands(Pageable pageable) {
+	public ResponseEntity<Band> listBands(Pageable pageable) {
 		return null;
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<?> getBandById(@PathVariable Long id) {
+	public ResponseEntity<Band> getBandById(@PathVariable Long id) {
 		return null;
 	}
 
 	@PostMapping
-	public ResponseEntity<?> createBand(@RequestBody Entity entity) {
+	public ResponseEntity<Band> createBand(@RequestBody Entity entity) {
 		return null;
 	}
 
 	@PutMapping("/{id}")
-	public ResponseEntity<?> editBand(@RequestBody Entity entity, @PathVariable Long id) {
+	public ResponseEntity<Band> editBand(@RequestBody Entity entity, @PathVariable Long id) {
 		return null;
 	}
 
 	@DeleteMapping("/{id}")
-	public ResponseEntity<?> deleteBand(@PathVariable Long id) {
+	public ResponseEntity<Band> deleteBand(@PathVariable Long id) {
 		return null;
 	}
 
 	@PutMapping("/{id}/assign-musicians")
-	public ResponseEntity<?> assignMusicians(@RequestBody List<Musician> musicians, @PathVariable Long id) {
+	public ResponseEntity<Band> assignMusicians(@RequestBody List<Musician> musicians, @PathVariable Long id) {
 		return null;
 	}
 
 	@PutMapping("/{id}/create-record")
-	public ResponseEntity<?> createRecord(@RequestBody Record record, @PathVariable Long id) {
+	public ResponseEntity<Band> createRecord(@RequestBody Record record, @PathVariable Long id) {
 		return null;
 	}
 }
