@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Entity;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.github.microservices.band.model.Record;
+import com.github.microservices.bands.services.BandService;
 import com.github.microservices.musician.model.Musician;
 
 import lombok.extern.slf4j.Slf4j;
@@ -24,8 +26,14 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/api/band")
 public class BandController {
 
+	private BandService bandService;
+
+	public BandController(BandService bandService) {
+		this.bandService = bandService;
+	}
+
 	@GetMapping
-	public ResponseEntity<?> listBands() {
+	public ResponseEntity<?> listBands(Pageable pageable) {
 		return null;
 	}
 
