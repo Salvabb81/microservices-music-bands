@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.github.microservices.labels.model.Label;
+import com.github.microservices.labels.services.LabelService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -21,6 +22,12 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 @RequestMapping("/api/label")
 public class LabelController {
+
+	private LabelService labelService;
+
+	public LabelController(LabelService labelService) {
+		this.labelService = labelService;
+	}
 
 	@GetMapping
 	public ResponseEntity<Label> listLables(Pageable pageable) {
