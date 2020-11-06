@@ -7,9 +7,16 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.github.microservices.band.model.Band;
+import com.github.microservices.bands.repository.BandRepository;
 
 @Service
 public class BandServiceImpl implements BandService {
+
+	private BandRepository bandrepository;
+
+	public BandServiceImpl(BandRepository bandrepository) {
+		this.bandrepository = bandrepository;
+	}
 
 	@Override
 	public Page<Band> findAll(Pageable pageable) {
@@ -32,7 +39,7 @@ public class BandServiceImpl implements BandService {
 	@Override
 	public void deleteById(Long id) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }
