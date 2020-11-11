@@ -33,6 +33,7 @@ tmp/**/*
 local.properties
 .classpath
 .settings/
+.sts4-cache
 .loadpath
 .factorypath
 /src/main/resources/rebel.xml
