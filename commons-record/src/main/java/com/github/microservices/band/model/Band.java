@@ -1,6 +1,6 @@
 package com.github.microservices.band.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -35,7 +35,7 @@ public class Band {
 	private String name;
 	
 	@NotNull
-	private Date start;
+	private LocalDate start;
 	
 	@NotNull
 	private Country country;
