@@ -40,9 +40,9 @@ public class LabelServiceImpl implements LabelService {
 	}
 
 	@Override
-	public void delteById(Long id) {
+	public String deleteById(Long id) {
 		// TODO Auto-generated method stub
-
+		return "Label deleted";
 	}
 
 }

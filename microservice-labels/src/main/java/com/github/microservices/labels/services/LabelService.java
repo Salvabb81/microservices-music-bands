@@ -15,6 +15,6 @@ public interface LabelService {
 
 	public Label save(Label label);
 
-	public void delteById(Long id);
+	public String deleteById(Long id);
 
 }
