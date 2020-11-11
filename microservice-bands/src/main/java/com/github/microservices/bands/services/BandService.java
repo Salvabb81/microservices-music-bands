@@ -15,6 +15,6 @@ public interface BandService {
 
 	public Band save(Band band);
 
-	public void deleteById(Long id);
+	public String deleteById(Long id);
 
 }

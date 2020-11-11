@@ -40,9 +40,9 @@ public class BandServiceImpl implements BandService {
 	}
 
 	@Override
-	public void deleteById(Long id) {
+	public String deleteById(Long id) {
 		// TODO Auto-generated method stub
-
+		return "Band deleted.";
 	}
 
 }
