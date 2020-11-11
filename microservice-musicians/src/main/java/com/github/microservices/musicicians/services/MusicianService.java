@@ -15,6 +15,6 @@ public interface MusicianService {
 
 	public Musician save(Musician musician);
 
-	public void deleteById(Long id);
+	public String deleteById(Long id);
 
 }

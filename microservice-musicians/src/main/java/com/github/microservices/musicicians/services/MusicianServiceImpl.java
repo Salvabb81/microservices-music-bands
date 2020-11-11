@@ -40,9 +40,9 @@ public class MusicianServiceImpl implements MusicianService {
 	}
 
 	@Override
-	public void deleteById(Long id) {
+	public String deleteById(Long id) {
 		// TODO Auto-generated method stub
-
+		return "Musician deleted";
 	}
 
 }
