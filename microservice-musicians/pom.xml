@@ -55,6 +55,11 @@
 			<artifactId>commons-musician</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		<dependency>
+			<groupId>com.github.microservices.commons</groupId>
+			<artifactId>commons-microservices</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<build>
