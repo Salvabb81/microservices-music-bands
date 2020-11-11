@@ -23,25 +23,22 @@ public class LabelServiceImpl implements LabelService {
 
 	@Override
 	public Page<Label> findAll(Pageable pageable) {
-		// TODO Auto-generated method stub
-		return null;
+		return labelRepository.findAll(pageable);
 	}
 
 	@Override
 	public Optional<Label> findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return labelRepository.findById(id);
 	}
 
 	@Override
 	public Label save(Label label) {
-		// TODO Auto-generated method stub
-		return null;
+		return labelRepository.save(label);
 	}
 
 	@Override
 	public String deleteById(Long id) {
-		// TODO Auto-generated method stub
+		labelRepository.deleteById(id);
 		return "Label deleted";
 	}
 
