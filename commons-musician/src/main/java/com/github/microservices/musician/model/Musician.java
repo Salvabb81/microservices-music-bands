@@ -43,7 +43,7 @@ public class Musician {
 	private Boolean active;
 	
 	@NotNull
-	private Enum<Instrument> instruments;
+	private Enum<Instrument> instrument;
 
 	@Column(name = "create_at")
 	@Temporal(TemporalType.TIMESTAMP)
