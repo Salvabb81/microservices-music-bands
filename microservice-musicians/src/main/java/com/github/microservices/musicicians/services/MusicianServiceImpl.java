@@ -23,25 +23,22 @@ public class MusicianServiceImpl implements MusicianService {
 
 	@Override
 	public Page<Musician> findAll(Pageable pageable) {
-		// TODO Auto-generated method stub
-		return null;
+		return musicianRepository.findAll(pageable);
 	}
 
 	@Override
 	public Optional<Musician> findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return musicianRepository.findById(id);
 	}
 
 	@Override
 	public Musician save(Musician musician) {
-		// TODO Auto-generated method stub
-		return null;
+		return musicianRepository.save(musician);
 	}
 
 	@Override
 	public String deleteById(Long id) {
-		// TODO Auto-generated method stub
+		musicianRepository.deleteById(id);
 		return "Musician deleted";
 	}
 
