@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.github.microservices.band.model.Band;
 import com.github.microservices.bands.repository.BandRepository;
@@ -22,26 +23,25 @@ public class BandServiceImpl implements BandService {
 	}
 
 	@Override
+	@Transactional(readOnly = true)
 	public Page<Band> findAll(Pageable pageable) {
-		// TODO Auto-generated method stub
-		return null;
+		return bandrepository.findAll(pageable);
 	}
 
 	@Override
+	@Transactional(readOnly = true)
 	public Optional<Band> findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return bandrepository.findById(id);
 	}
 
 	@Override
 	public Band save(Band band) {
-		// TODO Auto-generated method stub
-		return null;
+		return bandrepository.save(band);
 	}
 
 	@Override
 	public String deleteById(Long id) {
-		// TODO Auto-generated method stub
+		bandrepository.deleteById(id);
 		return "Band deleted.";
 	}
 
