@@ -3,9 +3,12 @@ package com.github.microservices.band.model;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
@@ -27,5 +30,9 @@ public class Record {
 	
 	@NotEmpty
 	private Date release;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "band_id")
+	private Band band;
 
 }
