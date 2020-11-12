@@ -2,11 +2,13 @@ package com.github.microservices.labels.controllers;
 
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,7 +24,11 @@ import lombok.extern.slf4j.Slf4j;
 public class LabelController extends CommonController<Label, LabelService> {
 
 	@PutMapping("/{id}")
-	public ResponseEntity<Label> editLabel(@RequestBody Label label, @PathVariable Long id) {
+	public ResponseEntity<?> editLabel(@Valid Label label, BindingResult result, @PathVariable Long id) {
+		if (result.hasErrors()) {
+			return this.validar(result);
+		}
+
 		Optional<Label> o = service.findById(id);
 		if (!o.isPresent()) {
 			return ResponseEntity.notFound().build();
