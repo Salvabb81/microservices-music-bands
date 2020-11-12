@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,7 +23,11 @@ import lombok.extern.slf4j.Slf4j;
 public class BandController extends CommonController<Band, BandService> {
 
 	@PutMapping("/{id}")
-	public ResponseEntity<Band> editBand(@RequestBody Band band, @PathVariable Long id) {
+	public ResponseEntity<?> editBand(@RequestBody Band band, BindingResult result, @PathVariable Long id) {
+		if (result.hasErrors()) {
+			return this.validar(result);
+		}
+
 		Optional<Band> o = service.findById(id);
 		if (!o.isPresent()) {
 			return ResponseEntity.notFound().build();
