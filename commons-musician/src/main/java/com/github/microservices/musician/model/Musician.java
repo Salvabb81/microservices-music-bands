@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -46,7 +48,8 @@ public class Musician {
 	private Boolean active;
 	
 	@NotNull
-	private Enum<Instrument> instrument;
+	@Enumerated(EnumType.STRING)
+	private Instrument instrument;
 
 	@Column(name = "create_at")
 	@Temporal(TemporalType.TIMESTAMP)

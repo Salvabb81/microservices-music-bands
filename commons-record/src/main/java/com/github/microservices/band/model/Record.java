@@ -1,6 +1,6 @@
 package com.github.microservices.band.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -24,13 +24,13 @@ public class Record {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@NotEmpty
 	private String name;
-	
+
 	@NotEmpty
-	private Date release;
-	
+	private LocalDate release;
+
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "band_id")
 	private Band band;
