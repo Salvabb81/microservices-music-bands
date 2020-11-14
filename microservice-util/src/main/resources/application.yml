@@ -1,0 +1,94 @@
+spring:
+  profiles:
+    active:
+    - local
+    
+---
+
+spring:
+  profiles: local
+  application:
+    name: microservice-util
+  datasource:
+    url: jdbc:h2:tcp://localhost:9090/mem:mydb
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: create
+
+server:
+  port: ${PORT:0}
+
+---
+
+spring:
+  profiles: test
+  application:
+    name: microservice-util
+  datasource:
+    url: jdbc:h2:tcp://localhost:9090/mem:mydb
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: create
+
+server:  port: ${PORT:0}
+
+---
+
+spring:
+  profiles: dev
+  application:
+    name: microservice-util
+  datasource:
+    url: 
+    driverClassName: 
+    username:
+    password:
+  jpa:
+    hibernate:
+      ddl-auto:
+
+server:
+  port: ${PORT:0}
+
+---
+
+spring:
+  profiles: int
+  application:
+    name: microservice-util
+  datasource:
+    url: 
+    driverClassName: 
+    username: 
+    password:
+  jpa:
+    hibernate:
+      ddl-auto:
+
+server:
+  port: ${PORT:0}
+
+---
+
+
+spring:
+  profiles: prod
+  application:
+    name: microservice-util
+  datasource:
+    url: 
+    driverClassName: 
+    username: 
+    password:
+  jpa:
+    hibernate:
+      ddl-auto:
+
+server:
+  port: ${PORT:0}
