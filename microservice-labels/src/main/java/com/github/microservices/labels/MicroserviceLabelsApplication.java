@@ -3,7 +3,9 @@ package com.github.microservices.labels;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
+@EnableEurekaClient
 @SpringBootApplication
 @EntityScan({ "com.github.microservices.band.model", "com.github.microservices.musician.model",
 		"com.github.microservices.country.model", "com.github.microservices.labels.model" })
