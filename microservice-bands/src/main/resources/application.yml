@@ -18,8 +18,8 @@ spring:
     hibernate:
       ddl-auto: create
 
-server:
-  port: ${PORT:0}
+#server:
+#  port: ${PORT:0}
   
 ---
 
@@ -36,7 +36,7 @@ spring:
     hibernate:
       ddl-auto: create
 
-server:  port: ${PORT:0}
+#server:#  port: ${PORT:0}
 
 ---
 
@@ -53,8 +53,8 @@ spring:
     hibernate:
       ddl-auto:
 
-server:
-  port: ${PORT:0}
+#server:
+#  port: ${PORT:0}
 
 ---
 
@@ -71,8 +71,8 @@ spring:
     hibernate:
       ddl-auto:
 
-server:
-  port: ${PORT:0}
+#server:
+#  port: ${PORT:0}
 
 ---
 
@@ -90,5 +90,5 @@ spring:
     hibernate:
       ddl-auto:
 
-server:
-  port: ${PORT:0}
+#server:
+#  port: ${PORT:0}
