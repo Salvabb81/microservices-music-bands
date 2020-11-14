@@ -30,7 +30,7 @@ public class CommonController<E, S extends CommonService<E>> {
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<?> getBandById(@PathVariable Long id) {
+	public ResponseEntity<?> getEntityById(@PathVariable Long id) {
 		Optional<E> o = service.findById(id);
 		if (o.isEmpty()) {
 			return ResponseEntity.notFound().build();
@@ -60,4 +60,5 @@ public class CommonController<E, S extends CommonService<E>> {
 		});
 		return ResponseEntity.badRequest().body(errores);
 	}
+	
 }
