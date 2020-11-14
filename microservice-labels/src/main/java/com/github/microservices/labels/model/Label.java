@@ -21,11 +21,17 @@ import javax.validation.constraints.NotEmpty;
 import com.github.microservices.band.model.Record;
 import com.github.microservices.country.model.Country;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Setter
+@Getter
 @Entity
 @Table(name = "labels")
 public class Label {
@@ -33,21 +39,21 @@ public class Label {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@NotEmpty
 	private String name;
-	
+
 	@OneToMany(fetch = FetchType.LAZY)
 	private Set<Record> records;
-	
+
 	@NotEmpty
 	@OneToOne(fetch = FetchType.LAZY)
 	private Country country;
-	
+
 	@Column(name = "create_at")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date createAt;
-	
+
 	@NotEmpty
 	@Email
 	private String email;
