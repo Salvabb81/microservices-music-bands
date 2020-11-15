@@ -18,8 +18,15 @@ spring:
     hibernate:
       ddl-auto: create
 
-#server:
-#  port: ${PORT:0}
+server:
+  port: ${PORT:0}
+  
+eureka:
+  instance:
+    instance-id: microservice-util:${random.value}
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
 
 ---
 
@@ -36,7 +43,14 @@ spring:
     hibernate:
       ddl-auto: create
 
-#server:#  port: ${PORT:0}
+server:  port: ${PORT:0}
+  
+eureka:
+  instance:
+    instance-id: microservice-util:${random.value}
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
 
 ---
 
@@ -53,8 +67,15 @@ spring:
     hibernate:
       ddl-auto:
 
-#server:
-#  port: ${PORT:0}
+server:
+  port: ${PORT:0}
+  
+eureka:
+  instance:
+    instance-id: microservice-util:${random.value}
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
 
 ---
 
@@ -71,8 +92,15 @@ spring:
     hibernate:
       ddl-auto:
 
-#server:
-#  port: ${PORT:0}
+server:
+  port: ${PORT:0}
+  
+eureka:
+  instance:
+    instance-id: microservice-util:${random.value}
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
 
 ---
 
@@ -90,5 +118,12 @@ spring:
     hibernate:
       ddl-auto:
 
-#server:
-#  port: ${PORT:0}
+server:
+  port: ${PORT:0}
+  
+eureka:
+  instance:
+    instance-id: microservice-util:${random.value}
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
