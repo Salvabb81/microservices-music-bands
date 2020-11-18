@@ -5,4 +5,6 @@ import com.github.microservices.commons.services.CommonService;
 
 public interface BandService extends CommonService<Band> {
 
+	public String getLastTweet();
+
 }
