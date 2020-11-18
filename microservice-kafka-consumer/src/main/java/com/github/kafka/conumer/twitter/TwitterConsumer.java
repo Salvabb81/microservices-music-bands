@@ -26,13 +26,27 @@ import org.elasticsearch.client.RestHighLevelClient;
 import org.elasticsearch.common.xcontent.XContentType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
 
 import com.google.gson.JsonParser;
 
-public class TwitterConsumer {
+@Component
+public class TwitterConsumer implements CommandLineRunner {
 
-	public void runConsumer() throws IOException {
+	@Value("${elasticsearch.hostname}")
+	private String hostname;
+	
+	@Value("${elasticsearch.username}")
+	private String username;
+	
+	@Value("${elasticsearch.password}")
+	private String password;
+
+	public void run(String... args) throws IOException {
 		Logger logger = LoggerFactory.getLogger(TwitterConsumer.class.getName());
+
 		RestHighLevelClient client = createClient();
 		KafkaConsumer<String, String> consumer = createConsumer("twitter_tweets");
 
@@ -52,11 +66,7 @@ public class TwitterConsumer {
 				try {
 					String id = extractIdFromTweet(record.value());
 
-					// adding the id to IndexRequest we make our consumer idempotent
-//					IndexRequest indexRequest = new IndexRequest("twitter", "tweets", id).source(record.value(),
-//							XContentType.JSON);
-
-					IndexRequest indexRequest = new IndexRequest("tweets").source(record.value(), XContentType.JSON)
+					IndexRequest indexRequest = new IndexRequest("twitter").source(record.value(), XContentType.JSON)
 							.id(id);
 
 					bulkRequest.add(indexRequest); // we add to our bulk request (takes no time)
@@ -92,7 +102,7 @@ public class TwitterConsumer {
 		properties.setProperty(ConsumerConfig.GROUP_ID_CONFIG, groupId);
 		properties.setProperty(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
 		properties.setProperty(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "false");
-		properties.setProperty(ConsumerConfig.MAX_POLL_RECORDS_CONFIG, "100");
+		properties.setProperty(ConsumerConfig.MAX_POLL_RECORDS_CONFIG, "10");
 
 		// create consumer
 		KafkaConsumer<String, String> consumer = new KafkaConsumer<String, String>(properties);
@@ -101,10 +111,7 @@ public class TwitterConsumer {
 		return consumer;
 	}
 
-	public static RestHighLevelClient createClient() {
-		String hostname = "kafka-course-2407621494.eu-central-1.bonsaisearch.net";
-		String username = "ogcwutznlx";
-		String password = "z1w44aasrq";
+	private RestHighLevelClient createClient() {
 
 		final CredentialsProvider credentialsProvider = new BasicCredentialsProvider();
 		credentialsProvider.setCredentials(AuthScope.ANY, new UsernamePasswordCredentials(username, password));
