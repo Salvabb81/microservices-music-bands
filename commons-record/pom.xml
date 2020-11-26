@@ -12,7 +12,7 @@
 	<groupId>com.github.microservices.band</groupId>
 	<artifactId>commons-band</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>commons-record</name>
+	<name>commons-band</name>
 
 	<properties>
 		<java.version>12</java.version>
@@ -22,12 +22,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<optional>true</optional>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
