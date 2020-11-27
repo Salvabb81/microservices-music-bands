@@ -9,4 +9,4 @@ Spring REST
 H2
 Swagger
 
-![Alt text](//class_diagram.jpeg?raw=true "Class diagram")
+![Alt text](/class_diagram.jpeg?raw=true "Class diagram")
